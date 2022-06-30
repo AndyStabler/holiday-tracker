@@ -1,0 +1,9 @@
+<h1>Who's off today?</h1>
+
+<ol>
+  <% TimeOff.where(date: Date.today).each do |time_off| %>
+    <li>
+      <%= time_off.user.name %> (<%= time_off.morning?  ? "AM" : ""%> <%= time_off.afternoon? ? "PM" : "" %>)
+    </li>
+  <% end %>
+</ol>

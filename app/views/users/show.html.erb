@@ -1,5 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
+<%= render "users_off_today" %>
+
+<%= render "time_offs/form", time_off: TimeOff.new(user: @user) %>
+
 <%= render @user %>
 
 <div>
