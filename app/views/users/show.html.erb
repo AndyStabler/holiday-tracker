@@ -4,6 +4,8 @@
 
 <%= render "time_offs/form", time_off: TimeOff.new(user: @user) %>
 
+<%= render "time_offs/user_upcoming_time_off", user: @user %>
+
 <%= render @user %>
 
 <div>

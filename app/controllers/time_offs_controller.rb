@@ -23,14 +23,9 @@ class TimeOffsController < ApplicationController
   def create
     @time_off = TimeOff.new(time_off_params.merge(user: User.last))
 
-    respond_to do |format|
-      if @time_off.save
-        format.html { redirect_to time_off_url(@time_off), notice: "Time off was successfully created." }
-        format.json { render :show, status: :created, location: @time_off }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @time_off.errors, status: :unprocessable_entity }
-      end
+    if @time_off.save
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 

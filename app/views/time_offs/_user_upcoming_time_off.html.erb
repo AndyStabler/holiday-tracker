@@ -1,0 +1,8 @@
+<%= turbo_frame_tag "user_upcoming_time_off" do %>
+  <h1>Upcoming time off</h1>
+
+  <% user.time_offs.each do |time_off| %>
+    <%= render "time_offs/time_off", time_off: time_off %>
+  <% end %>
+<% end %>
+

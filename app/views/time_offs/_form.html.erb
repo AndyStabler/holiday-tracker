@@ -1,37 +1,40 @@
-<%= form_with(model: time_off) do |form| %>
-  <% if time_off.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(time_off.errors.count, "error") %> prohibited this time_off from being saved:</h2>
+<%= turbo_frame_tag "new_time_off_request" do %>
+  <h1>Create Time Off Request</h1>
+  <%= form_with(model: time_off) do |form| %>
+    <% if time_off.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(time_off.errors.count, "error") %> prohibited this time_off from being saved:</h2>
 
-      <ul>
-        <% time_off.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+        <ul>
+          <% time_off.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div>
+      <%= form.label :date, style: "display: block" %>
+      <%= form.date_field :date %>
+    </div>
+
+    <div>
+      <%= form.label :morning, style: "display: block" %>
+      <%= form.check_box :morning %>
+    </div>
+
+    <div>
+      <%= form.label :afternoon, style: "display: block" %>
+      <%= form.check_box :afternoon %>
+    </div>
+
+    <div>
+      <%= form.label :more_info, style: "display: block" %>
+      <%= form.text_field :more_info %>
+    </div>
+
+    <div>
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :date, style: "display: block" %>
-    <%= form.date_field :date %>
-  </div>
-
-  <div>
-    <%= form.label :morning, style: "display: block" %>
-    <%= form.check_box :morning %>
-  </div>
-
-  <div>
-    <%= form.label :afternoon, style: "display: block" %>
-    <%= form.check_box :afternoon %>
-  </div>
-
-  <div>
-    <%= form.label :more_info, style: "display: block" %>
-    <%= form.text_field :more_info %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
 <% end %>
