@@ -1,11 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+day_off:
   date: 2022-06-30
-  morning: false
+  morning: true
   afternoon: false
-  more_info: MyString
-  user: one
+  more_info: Doctors
+  user: barry
 
 two:
   date: 2022-06-30
