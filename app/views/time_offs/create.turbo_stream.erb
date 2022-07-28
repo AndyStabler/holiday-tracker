@@ -1,2 +1,3 @@
 <%= turbo_stream.append 'user_upcoming_time_off', template: "time_offs/_time_off", locals: { time_off: @time_off } %>
 <%= turbo_stream.replace 'new_time_off_request', template: "time_offs/_form", locals: { time_off: TimeOff.new } %>
+<%= turbo_stream.replace 'users_off_today', template: "users/_users_off_today" %>
