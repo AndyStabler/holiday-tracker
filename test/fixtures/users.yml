@@ -5,9 +5,4 @@ barry:
   email_address: barry@test.com
   allowance: 30
   can_approve_time_off: true
-
-two:
-  name: MyString
-  email_address: MyString
-  allowance: 1
-  can_approve_time_off: false
+  organisation: freeagent

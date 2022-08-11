@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_28_104616) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_28_104949) do
   create_table "organisations", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -35,7 +35,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_28_104616) do
     t.boolean "can_approve_time_off"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "organisation_id", null: false
+    t.index ["organisation_id"], name: "index_users_on_organisation_id"
   end
 
   add_foreign_key "time_offs", "users"
+  add_foreign_key "users", "organisations"
 end

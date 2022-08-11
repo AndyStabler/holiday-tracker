@@ -4,12 +4,5 @@ day_off:
   date: 2022-06-30
   morning: true
   afternoon: false
-  more_info: Doctors
+  more_info: Doctors appointment
   user: barry
-
-two:
-  date: 2022-06-30
-  morning: false
-  afternoon: false
-  more_info: MyString
-  user: two
