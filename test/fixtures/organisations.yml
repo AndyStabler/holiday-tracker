@@ -2,3 +2,4 @@
 
 freeagent:
   name: FreeAgent
+  subdomain: freeagent

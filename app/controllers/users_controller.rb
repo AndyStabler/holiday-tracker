@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :set_tenant
   before_action :set_user, only: %i[ show edit update destroy ]
 
   # GET /users or /users.json
@@ -58,6 +59,17 @@ class UsersController < ApplicationController
   end
 
   private
+
+  # TODO: move this somewhere more appropriate
+  # Add tests for viewing a user
+  # sessions management
+    def set_tenant
+      subdomain = request.subdomain
+      organisation = Organisation.find_by(subdomain: subdomain)
+      # what happens when there is no organisation?
+      ActsAsTenant.current_tenant = organisation
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
