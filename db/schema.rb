@@ -24,8 +24,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_105143) do
     t.string "name", null: false
     t.string "email_address", null: false
     t.integer "allowance", null: false
-    t.boolean "can_approve_time_off", null: false
-    t.boolean "admin", null: false
+    t.boolean "can_approve_time_off", default: false, null: false
+    t.boolean "admin", default: false, null: false
     t.string "password_digest", null: false
     t.integer "organisation_id"
     t.datetime "created_at", null: false
