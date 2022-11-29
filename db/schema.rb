@@ -10,14 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_23_105143) do
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email_address"
-    t.integer "allowance"
-    t.boolean "can_approve_time_off"
+ActiveRecord::Schema[7.0].define(version: 2022_11_29_105143) do
+  create_table "organisations", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "subdomain", null: false
+    t.datetime "activated_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["subdomain"], name: "index_organisations_on_subdomain"
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "email_address", null: false
+    t.integer "allowance", null: false
+    t.boolean "can_approve_time_off", null: false
+    t.boolean "admin", null: false
+    t.string "password_digest", null: false
+    t.integer "organisation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organisation_id"], name: "index_users_on_organisation_id", unique: true
+  end
+
+  add_foreign_key "users", "organisations"
 end
