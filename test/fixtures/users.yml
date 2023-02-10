@@ -4,4 +4,4 @@ andy:
   allowance: 20
   can_approve_time_off: true
   admin: true
-  password: 'password'
+  password_digest: 'password'

@@ -3,18 +3,19 @@
 <%= form_with model: @organisation do |f|%>
   <%= f.label :name, "Organisation name" %>
   <%= f.text_field :name %>
+  <%= f.fields_for :users, @user do |user_form| %>
+    <%= user_form.label :name, "Your name" %>
+    <%= user_form.text_field :name %>
 
-  <%= f.label :user_name, "Your name" %>
-  <%= f.text_field :user_name %>
+    <%= user_form.label :email_address, "Email address" %>
+    <%= user_form.text_field :email_address %>
 
-  <%= f.label :user_email, "Email address" %>
-  <%= f.text_field :user_email %>
+    <%= user_form.label :password, "Password" %>
+    <%= user_form.text_field :password %>
 
-  <%= f.label :user_password, "Password" %>
-  <%= f.text_field :user_password %>
-
-  <%= f.label :user_password_confirmation, "Confirm password" %>
-  <%= f.text_field :user_password_confirmation %>
+    <%= user_form.label :password_confirmation, "Confirm password" %>
+    <%= user_form.text_field :password_confirmation %>
+  <% end %>
 
   <%= f.submit "Sign up" %>
 <% end %>
