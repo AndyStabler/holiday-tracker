@@ -1,7 +1,7 @@
 require "application_system_test_case"
 
 class OrganisationsTest < ApplicationSystemTestCase
-   test "visiting the index" do
+   test "creating an organisation" do
      visit new_organisation_url
 
      fill_in "Organisation name", with: "Paper Supplies Inc"

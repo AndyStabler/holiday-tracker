@@ -3,7 +3,8 @@
 <%= form_with model: @organisation do |f|%>
   <%= f.label :name, "Organisation name" %>
   <%= f.text_field :name %>
-  <%= f.fields_for :users, @user do |user_form| %>
+
+  <%= f.fields_for :user, @user do |user_form| %>
     <%= user_form.label :name, "Your name" %>
     <%= user_form.text_field :name %>
 

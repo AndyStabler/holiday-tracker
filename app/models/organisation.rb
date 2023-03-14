@@ -1,13 +1,12 @@
 class Organisation < ApplicationRecord
   has_many :users, dependent: :destroy
 
-  accepts_nested_attributes_for :users
-
-  before_save :set_subdomain
+  before_save :set_subdomain, if: :new_record?
+  validates_presence_of :name
 
   private
 
   def set_subdomain
-    # TODO: Set subdomain
+    self.subdomain = name.parameterize.underscore
   end
 end

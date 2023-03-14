@@ -5,8 +5,9 @@ require "faker"
 FactoryBot.define do
   factory :user do
     name { "Andy" }
-    email { Faker::Internet.email }
+    email_address { Faker::Internet.email }
     password { "Password" }
+    organisation
 
     trait :admin do
       admin { true }
