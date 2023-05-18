@@ -1,7 +1,0 @@
-andy:
-  name: Andy
-  email_address: hello@test.com
-  allowance: 20
-  can_approve_time_off: true
-  admin: true
-  password_digest: 'password'
